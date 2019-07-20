@@ -1,4 +1,20 @@
 - commits:
+    - subject: 'docs: Add some internal documentation on some supervisor models'
+      hash: d0013b3c2d1ec7fd4cd685edf749fd363021ecd2
+      body: >
+        We add some descriptions of the supervisor's top level model, the
+        behavior of the Device State engine, and image management. We also add a
+        few comments in some internal fields that may otherwise be rather
+        obscure.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Pablo Carranza Velez <pablo@balena.io>
+        signed-off-by: Pablo Carranza Velez <pablo@balena.io>
+      author: Pablo Carranza Velez
+  version: 10.0.4
+  date: 2019-07-20T02:46:09.993Z
+- commits:
     - subject: 'fix: Don''t consider volume supervised labels when comparing'
       hash: cbb079e8dc03b9ef85336a8fbd22b85574c7db7e
       body: ''
