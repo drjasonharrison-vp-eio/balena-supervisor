@@ -1,4 +1,18 @@
 - commits:
+    - subject: Remove obselete deployment scripts
+      hash: 996544f33c853e64e9f421f26c1cc3a3670eae4d
+      body: |
+        These scripts now live in
+        https://github.com/balena-io-modules/supervisor-release
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Cameron Diver <cameron@balena.io>
+        signed-off-by: Cameron Diver <cameron@balena.io>
+      author: Cameron Diver
+  version: 10.3.8
+  date: 2019-09-24T10:18:07.493Z
+- commits:
     - subject: 'ping: move /ping out from authentication'
       hash: 8d5633a11f15cee356854e9c21502ada4b89e7c7
       body: ''
