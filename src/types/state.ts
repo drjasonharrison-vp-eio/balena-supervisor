@@ -1,8 +1,28 @@
 import { ComposeNetworkConfig } from '../compose/types/network';
 import { ServiceComposeConfig } from '../compose/types/service';
-import { ComposeVolumeConfig } from '../compose/volume';
 
-export interface DeviceApplicationState {
+import Network from '../compose/network';
+import Service from '../compose/service';
+import Volume, { ComposeVolumeConfig } from '../compose/volume';
+
+export type DeviceReportFields = Partial<{
+	api_port: number;
+	api_secret: string | null;
+	ip_address: string;
+	os_version: string | null;
+	os_variant: string | null;
+	supervisor_version: string;
+	provisioning_progress: null | number;
+	provisioning_state: string;
+	status: string;
+	update_failed: boolean;
+	update_pending: boolean;
+	update_downloaded: boolean;
+	is_on__commit: string;
+	logs_channel: null;
+}>;
+
+export interface DeviceStatus {
 	local?: {
 		config?: Dictionary<string>;
 		apps?: {
@@ -16,7 +36,7 @@ export interface DeviceApplicationState {
 				};
 			};
 		};
-	};
+	} & DeviceReportFields;
 	// TODO: Type the dependent entry correctly
 	dependent?: any;
 	commit?: string;
@@ -39,7 +59,7 @@ export interface TargetState {
 						imageId: number;
 						serviceName: string;
 						image: string;
-						running: boolean;
+						running?: boolean;
 						environment: Dictionary<string>;
 					} & ServiceComposeConfig;
 				};
@@ -50,7 +70,7 @@ export interface TargetState {
 	};
 	// TODO: Correctly type this once dependent devices are
 	// actually properly supported
-	dependent: Dictionary<any>;
+	dependent?: Dictionary<any>;
 }
 
 export type LocalTargetState = TargetState['local'];
@@ -70,3 +90,28 @@ export type ApplicationDatabaseFormat = Array<{
 	networks: string;
 	volumes: string;
 }>;
+
+// This structure is the internal representation of both
+// target and current state. We create instances of compose
+// objects and these are what the state engine uses to
+// detect what it should do to move between them
+export interface InstancedAppState {
+	[appId: number]: {
+		appId: number;
+		commit: string;
+		releaseId: number;
+		name: string;
+		services: Service[];
+		volumes: { [name: string]: Volume };
+		networks: { [name: string]: Network };
+	};
+}
+
+export interface InstancedDeviceState {
+	local: {
+		name: string;
+		config: Dictionary<string>;
+		apps: InstancedAppState;
+	};
+	dependent: any;
+}
