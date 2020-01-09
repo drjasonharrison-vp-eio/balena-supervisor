@@ -1,4 +1,34 @@
 - commits:
+    - subject: Convert device-state module to typescript
+      hash: 211d8597aed2094d5c634b359c87152e2220b58a
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Cameron Diver <cameron@balena.io>
+        signed-off-by: Cameron Diver <cameron@balena.io>
+      author: Cameron Diver
+    - subject: Improve application-manager typings
+      hash: 825f0e2c7a39ff32a0778036443584cf60239f46
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Cameron Diver <cameron@balena.io>
+        signed-off-by: Cameron Diver <cameron@balena.io>
+      author: Cameron Diver
+    - subject: Improve and extend internal typings
+      hash: 5810f974eaa5eb427ec5a9a0f91c7d6f22b246e5
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Cameron Diver <cameron@balena.io>
+        signed-off-by: Cameron Diver <cameron@balena.io>
+      author: Cameron Diver
+  version: 10.6.29
+  date: 2020-01-09T13:12:54.294Z
+- commits:
     - subject: Ensure that we always have the pi4 overlay assigned
       hash: 426d8cd10ad22fcf79b019dc49e2c2f6c27cd06d
       body: ''
